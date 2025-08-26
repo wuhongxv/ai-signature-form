@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Artistic Signature Design System - Inspired by Chinese calligraphy and modern design */
+
+@layer base {
+  :root {
+    /* Base colors - Inspired by ink and paper */
+    --background: 35 20% 97%;
+    --foreground: 0 0% 15%;
+
+    /* Card system with warm paper tones */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    /* Primary - Rich ink black with gold accents */
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 45 100% 70%;
+
+    /* Secondary - Warm gold for artistic touches */
+    --secondary: 45 100% 95%;
+    --secondary-foreground: 0 0% 9%;
+
+    /* Muted tones - Soft grays */
+    --muted: 35 10% 95%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Accent - Artistic red for highlights */
+    --accent: 0 65% 88%;
+    --accent-foreground: 0 65% 25%;
+
+    /* Destructive - Traditional red */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 35 15% 88%;
+    --input: 35 15% 92%;
+    --ring: 45 100% 70%;
+
+    /* Design system enhancements */
+    --signature-red: 0 65% 55%;
+    --signature-gold: 45 100% 70%;
+    --signature-ink: 0 0% 9%;
+    --paper-warm: 35 20% 97%;
+
+    /* Gradients */
+    --gradient-artistic: linear-gradient(135deg, hsl(var(--signature-gold) / 0.1), hsl(var(--signature-red) / 0.1));
+    --gradient-signature: linear-gradient(90deg, hsl(var(--signature-ink)), hsl(var(--signature-red) / 0.8));
+    --gradient-paper: linear-gradient(180deg, hsl(var(--paper-warm)), hsl(var(--background)));
+
+    /* Shadows */
+    --shadow-ink: 0 4px 20px hsl(var(--signature-ink) / 0.1);
+    --shadow-artistic: 0 8px 32px hsl(var(--signature-gold) / 0.2);
+    --shadow-elegant: 0 2px 16px hsl(var(--signature-red) / 0.1);
+
+    /* Animation transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-artistic: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode for artistic signature form */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 65% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 100% 70%;
+
+    /* Dark mode design tokens */
+    --signature-red: 0 65% 65%;
+    --signature-gold: 45 100% 80%;
+    --signature-ink: 0 0% 98%;
+    --paper-warm: 0 0% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--gradient-paper);
+  }
+
+  /* Custom typography for Chinese characters */
+  .chinese-title {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Artistic elements */
+  .ink-brush::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-artistic);
+    opacity: 0;
+    transition: var(--transition-artistic);
+    border-radius: inherit;
+  }
+
+  .ink-brush:hover::before {
+    opacity: 1;
+  }
+
+  .signature-glow {
+    box-shadow: var(--shadow-artistic);
+    transition: var(--transition-smooth);
+  }
+
+  .signature-glow:hover {
+    box-shadow: var(--shadow-ink);
+  }
+}
